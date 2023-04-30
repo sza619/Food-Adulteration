@@ -1,0 +1,54 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+
+<head>
+  <title>Support Information</title>
+
+  <style>
+    .container{display: flex;}
+    #b4{
+    background-color: gold;
+    color: black;
+    }
+    #b7{
+      background-color: gold;
+      color: black;
+    }
+</style>
+</head>
+
+{% endblock %}
+
+{% block body %}
+
+<body>
+
+    <div class="container" style="margin-top: 13vh;">
+      <div class="tile" style="margin-left: 10vw;" id="p1">
+        <iframe width="400vw" height="200vh" src="https://www.youtube.com/embed/Vz719gfUjOQ"
+         title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write;
+          encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+      <div class="tile" style="margin-left: 7vw;" id="p2">
+        <iframe width="400vw" height="200vh" src="https://www.youtube.com/embed/SrSjzq1fxRo"
+         title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write;
+          encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+    </div>
+    <div class="container" style="margin-top: 5vh;" id="p3">
+      <div class="tile" style="margin-left: 10vw;">
+        <iframe width="400vw" height="200vh" src="https://www.youtube.com/embed/TclxgUBZiN0" 
+        title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write;
+         encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+      <div class="tile" style="margin-left: 7vw; margin-bottom: 15vh;" id="p4">
+        <iframe width="400vw" height="200vh" src="https://www.youtube.com/embed/hWz0s3iwPXg"
+         title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write;
+          encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+    </div>
+
+</body>
+
+{% endblock %}

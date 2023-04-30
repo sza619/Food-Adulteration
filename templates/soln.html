@@ -1,0 +1,58 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+
+<head>
+  <title>Solution</title>
+
+  <style>
+    .container{
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-top: 13vh;
+    }
+    #b4{
+      background-color: gold;
+      color: black;
+    }
+    #b5{
+      background-color: gold;
+      color: black;
+    }   
+  </style>
+</head>
+
+{% endblock %}
+
+{% block body %}
+
+<body>
+
+    <div class="container">
+    <div>
+      The ML and Deep Vision-based solution was tested for detecting adulteration in Toor dal.
+       Through field studies, surveys, and expert interviews, it was found that the implemented
+        solution has better coverage of quality factors such as shape, size, and color, and analytics
+         compared to commercial solutions in the market. The Machine Learning-based solution will
+          result in maximum percentage of detection of the presence of Foreign Objects in Toor Dal
+           batch samples to prevent adulteration and ensure consumer safety. 
+    </div>
+    <img src="/static/images/anim.gif" style="width: 50vw; margin-top: 4vh;" alt="Gif-1">
+    </div>
+
+    <div class="container">
+      <div>
+        The solutions offered by Swan Sorter Systems, such as their color sorters and near-infrared
+         (NIR) sorters, can also be used as complementary tools for identifying adulterants in Toor
+          Dal samples. By combining the ML-based system with advanced sorting technology, the accuracy
+           and efficiency of adulteration detection can be further improved, leading to better food safety
+            and quality control in the Toor Dal industry.
+      </div>
+      <img src="/static/images/vroon.gif" style="width: 50vw; margin-top: 4vh; margin-bottom: 5vh;" alt="Gif-1">
+      </div>
+
+</body>
+
+{% endblock %}

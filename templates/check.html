@@ -1,0 +1,213 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+
+<head>
+  <title>Analyze</title>
+  <style>
+            body{
+                background-color: rgb(240, 240, 240);
+            }
+            .row{
+                margin: 10vh 0;
+            }
+            h1{
+                text-align: center;
+            }
+            #content{
+                padding: 5px;
+                background-color: rgba(0, 0, 0, 0.205);
+                color: white;
+                border-radius: 15px;
+            }
+            img{
+                width: 90%;
+            }
+            .m{
+            display: flex;
+            position: absolute;
+            top: 7%;
+            left: 5%;
+            }
+            .fo{
+                width: 83vw;
+                margin-top: 15%;
+                margin-left: 8vw;
+            }
+            .fo form{
+                border-radius: 10px;
+                padding: 50px;
+            }
+            .size{
+                margin-bottom: 0;
+                font-size: large;
+            }
+            body, html {
+                height: 100%;
+                margin: 0;
+                font-family: Arial;
+            }
+            .f{
+                display: flex;
+                flex-direction: column;
+                align-content: center;
+                flex-wrap: wrap;
+            }
+            h3{
+                margin-top: 4vh;
+                color: rgb(0, 0, 200);
+            }
+            .dropdown button:hover, :checked {background-color: #555; color: white;}
+            .btn-check:checked+.btn, .btn.active, .btn.show, .btn:first-child:active, :not(.btn-check)+.btn:active {background-color: #555;}
+            .footer{
+                position: fixed;
+                bottom: 0;
+                background-color: #777;
+                width: 100%;
+            }
+            #b2{
+                background-color: gold;
+                color: black;
+            }
+            .fo textarea{
+                height: 130px;
+                resize: none;
+            }
+            .fo .form-control{
+                font-size: 15px;
+            }
+  </style>
+  </head>
+
+{% endblock %}
+
+{% block body %}
+
+<body>
+
+<div class="container" style="margin-top: 10%;">
+  <div class="row">
+    <div class="col-lg-12">
+        <div id="content">
+            <form action="/analyse" method="post">
+                <p style="font-size: 5vh; color: rgb(0, 0, 200);    position: absolute; top: 25vh; left: 14vw;">Select Input</p>
+                <div  class="row">
+                    <div class="col-lg-8">
+                        <input style="margin-left: 10%; margin-top: 10%;" type="file" name="file" class="form-control">
+                    </div>
+                    <div class="col-lg-2">
+                        <input style="margin-left: 100%; margin-top: 45%;" type="submit" class="form-control btn btn-primary">  
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>
+    {% if image1 %}
+    <div class="row">
+    <div class="col-lg-12">
+        <div id="content" class="f">
+            <h3>Input Image</h3>
+            <hr>
+            
+                <img src="{{image1}}" style="margin-bottom: 10vh">
+            
+        </div>
+    </div>
+    </div>
+    {% endif %}
+    </div>
+    {% if image2 %}
+    <div class="row">
+    <div class="col-lg-12">
+        <div id="content" class="f"> 
+
+            <h3>Output Image</h3>
+            <hr>
+            
+                <img style="width: 90%; margin-bottom: 10vh;" src="{{image2}}">
+            
+        </div>
+    </div>
+  </div>
+  {% endif %}
+</div>
+
+    <div class="fo mb-5">
+        <form style="background-color:rgba(0, 0, 0, 0.205)" method="post" action="/submit" class="needs-validation" novalidate>
+            <p style="font-size: 5vh; color: rgb(0, 0, 200);">Fill the details</p>
+            <div class="mb-2 mt-1">
+                <label>Cultivator ID:</label>
+                <input type="text" class="form-control" maxlength="6" name="id" placeholder="123456" pattern="[0-9]{6}" required>
+                <div class="invalid-feedback">
+                    Please provide a valid ID.
+                </div>
+            </div>
+            <div class="mb-2">
+                <label>Batch Number:</label>
+                <input type="text" class="form-control" maxlength="3" name="bn" placeholder="123" pattern="[0-9]{3}" required>
+                <div class="invalid-feedback">
+                    Please provide a valid Batch Number.
+                </div>
+            </div>
+            <div class="mb-2">
+                <label>Farm Location:</label>
+                <input type="text" class="form-control" name="fl" required>
+                <div class="invalid-feedback">
+                    Please provide a valid Farm Location.
+                </div>
+            </div>
+            <div class="mb-2">
+                <label>Harvest Date:</label>
+                <input type="date" class="form-control" name="hdate" required>
+                <div class="invalid-feedback">
+                    Please provide a valid Date.
+                </div>
+            </div>
+
+            <!-- <p class="size">Quality</p>
+            <div class="mb-2">
+                <input type="radio" name="q" value="1" required>
+                <label>Accept</label>
+            </div>
+            <div class="mb-2">
+                <input type="radio" name="q" value="0" required>
+                <label>Reject</label>
+            </div> -->
+            <div class="mb-2">
+                <label>Remarks</label>
+                <textarea class="form-control" rows="5" name="r" required></textarea>
+                <div class="invalid-feedback">
+                    Please provide valid Data.
+                </div>
+            </div>
+            <input type="submit" class="btn btn-primary mt-3"></input>
+        </form>
+    </div>
+
+    <script>
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function () {
+        'use strict'
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.querySelectorAll('.needs-validation')
+
+        // Loop over them and prevent submission
+        Array.prototype.slice.call(forms)
+            .forEach(function (form) {
+            form.addEventListener('submit', function (event) {
+                if (!form.checkValidity()) {
+                event.preventDefault()
+                event.stopPropagation()
+                }
+
+                form.classList.add('was-validated')
+            }, false)
+            })
+        })()
+    </script>
+
+</body>
+
+{% endblock %}

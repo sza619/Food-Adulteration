@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% block head %} {% endblock %}
+  <title>Food Adulteration</title>
+  <link rel="icon" type="image/x-icon" href="static/images/brain.png">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+      function openPage(pageName,elmnt,color) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablink");
+      for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].style.backgroundColor = "";
+      }
+      document.getElementById(pageName).style.display = "block";
+      elmnt.style.backgroundColor = color;
+      }
+
+      // Get the element with id="defaultOpen" and click on it
+      document.getElementById("defaultOpen").click();
+  </script>
+
+  <style>
+      body, html {
+      height: 100%;
+      margin: 0;
+      font-family: Arial;
+      }
+      /* Style tab links */
+      .tablink {
+      background-color: #555;
+      color: white;
+      float: left;
+      border: 1px solid transparent;
+      outline: none;
+      cursor: pointer;
+      padding: 14px 16px;
+      font-size: 17px;
+      width: 33.33%;
+      }
+      .tablink:hover {
+      background-color: #777;
+      }
+      /* Style the tab content (and add height:100% for full page content) */
+      .tabcontent {
+      color: black;
+      display: none;
+      padding: 100px 20px;
+      height: 100%;
+      }
+      .m{
+          display: flex;
+          position: absolute;
+          top: 5%;
+          left: 5%;
+      }
+      .h p{
+          font-size: 19px;
+      }
+      .h{
+          position: absolute;
+          left: 6vw;
+          animation: anim 2s ease;
+      }
+      @keyframes anim {
+      from {top:0;}
+      to {top:31vh;}
+      }
+      .r{display: flex;}
+      .top-header{
+        top: 0;
+        left: 0;
+        right: 0;
+        position: fixed;
+        height: 9vh;
+        z-index: 99;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+      .t{
+        display: flex;
+        flex-wrap: wrap;
+        align-content: center;
+        font-size: 6vh;
+      }
+      .b{
+        display: flex;
+        flex-wrap: wrap;
+        align-content: center;
+        float: right;
+        margin-right: 2vw;
+      }
+      .b a{
+        text-decoration: none;
+        color: white;
+        background-color: black;
+        padding: 4px 17px 4px 17px;
+        border-radius: 5px;
+        margin-right: 5px;
+        margin-top: 1px;
+      }
+      .b a:hover{background-color: #555; color: white;}
+      .dropdown button{
+        height: 5.5vh;
+        display: flex;
+        flex-wrap: wrap;
+        align-content: center;
+        background-color: black;
+        color: white;
+      }
+      .dropdown button:hover, :visited, :checked {background-color: #555; color: white;}
+      .btn-check:checked+.btn, .btn.active, .btn.show, .btn:first-child:active, :not(.btn-check)+.btn:active {background-color: #555;}
+      .footer{
+        position: absolute;
+        bottom: 0;
+        background-color: #777;
+        width: 100%;
+      }
+    </style>
+</head>
+
+<body>
+
+  <div class="top-header bg-info">
+    <div class="t">
+      <p style="margin-left: 3vw; margin-bottom: 0; letter-spacing: 5px; margin-right: 1vw;">FADS</p>
+      <img style="width: 6vw;" src="/static/images/logo2.png" alt="logo">
+    </div>
+    <div class="b">
+      <a href="/" id="b1">Home</a>
+      <a href="/check" id="b2">Analyze</a>
+      <a href="/display" id="b3">Analytics</a>
+      <div class="dropdown">  
+        <button type="button" class="btn" data-bs-toggle="dropdown" id="b4">Knowledge</button>
+        <ul class="dropdown-menu bg-dark">
+          <li><a class="dropdown-item text-center" href="/soln" id="b5">Solution</a></li>
+          <li><a class="dropdown-item text-center" href="/adul" id="b6">Adulteration</a></li>
+          <li><a class="dropdown-item text-center" href="/siu" id="b7">Support Info</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  {% block body %} {% endblock %}
+
+<div class="p-1 bg-secondary">
+  <p style="margin-bottom: 0; margin-left: 4vw;">Food Adulteration Detection and Sorting v1.0</p>
+</div>
+
+</body>
+</html>

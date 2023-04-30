@@ -1,0 +1,52 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+
+<head>
+  <title>Home</title>
+  <style>
+    
+    .image-container{
+          width: 100%;
+          height: 96vh;
+          overflow: hidden;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-position: center;
+          background-size: cover;
+          /* background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('static/images/cdaal-transformed.png'); */
+          background-image: url('static/images/bg.png');
+          animation: bg 2s ease;
+      }
+      @keyframes bg {
+      from {opacity: 0.5;}
+      to {opacity: 1;}
+      }
+    #b1{
+      background-color: gold;
+      color: black;
+    }
+    h1{
+      font-size: 7vh;
+    }
+  </style>
+</head>
+
+{% endblock %}
+
+{% block body %}
+
+
+<body>
+  
+  <div class="image-container">
+    <div class="h p-5 text-white text-center">
+        <h1>Food Adulteration</h1>
+        <h1>Detection and Sorting</h1>
+    </div>
+  </div>
+  
+</body>
+
+{% endblock %}

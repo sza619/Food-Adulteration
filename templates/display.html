@@ -1,0 +1,85 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+
+<head>
+  <title>Analytics</title>
+  
+  <style>
+    body{
+      background-color: rgb(240, 240, 240);
+    }
+    table, th, td {
+      border: 1px solid rgb(0, 0, 0);
+      border-collapse: collapse;
+      padding: 5px;
+      border-width: 1px!important;
+    }
+    td{
+      align-items: center;
+      align-content: center;
+    }
+    th {
+      background-color: #ccc;
+      font-weight: bold;
+    }
+    p{margin-block:0;}
+    #i{
+      width: 20vw;
+      margin: 30px;
+    }
+    .m{
+        display: flex;
+        position: absolute;
+        top: 7%;
+        left: 5%;
+      }
+      #b3{
+              background-color: gold;
+              color: black;
+      }
+      td p{
+        margin-bottom: .8vh;
+      }
+      
+  </style>
+</head>
+{% endblock %}
+
+{% block body %}
+
+  <body>
+
+    <div class="container" style="margin-top: 20vh; margin-bottom: 6vh;">
+      <table class="table">
+          <thead style="background-color: rgba(0, 0, 0, 0.205);">
+          <tr>
+              <th style="font-size: 4vh; color: rgb(0, 0, 196);">Batch Sample</th>
+              <th style="font-size: 4vh; color: rgb(0, 0, 196);">Adulteration Percentage</th>
+              <th style="font-size: 4vh; color: rgb(0, 0, 196);">Details</th>
+          </tr></thead>
+          {% for index in range(data|length) %}
+          <tr>
+            <td><img src="data:image/png;base64,{{ images[index] }}" id="i" alt="No Image"/></td>
+            <td>
+              <p style="margin-top: 25px;">{{ quality[index]['t'] }}</p>
+              <p>{{ quality[index]['k'] }}</p>
+              <p>Toor Count: {{ quality[index]['tc'] }}</p>
+              <p>Khesari Count: {{ quality[index]['kc'] }}</p><br>
+              <p>Batch: <b>{% if quality[index]['q'] == 0 %}Rejected{% else %}Accepted{% endif %}</b></p>
+            </td>
+            <td>
+              <p style="margin-top: 25px;">Cultivator ID: {{ data[index]['id'] }}</p>
+              <p>Batch Number: {{ data[index]['bn'] }}</p>
+              <p><div style="width: 20vw;">Farm location: {{ data[index]['fl'] }}</div></p>
+              <p>Harvest Date: {{ data[index]['hdate'] }}</p>
+              <p><div style="width: 20vw;">Remarks: {{ data[index]['r'] }}</div></p>
+            </td>
+          </tr>
+          {% endfor %}
+      </table>
+    </div>
+
+  </body>
+
+{% endblock %}
