@@ -41,4 +41,3 @@ YOLOv5 🚀 is the world's most loved vision AI, representing <a href="https://u
 </div>
 
 </div>
-<br>
